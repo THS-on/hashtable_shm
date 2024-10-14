@@ -1,0 +1,12 @@
+[package]
+name = "hashtable_shm_client"
+version.workspace = true
+edition.workspace = true
+
+
+
+[dependencies]
+hashtable_shm.workspace = true
+libc.workspace = true
+rustix.workspace = true
+thiserror.workspace = true

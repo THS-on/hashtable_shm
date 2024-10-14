@@ -1,0 +1,20 @@
+[workspace]
+members = [
+    "hashtable_shm",
+    "hashtable_shm_client",
+    "hashtable_shm_server",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "Apache-2.0"
+version = "0.0.1"
+
+[workspace.dependencies]
+clap = { version = "4.5.20", features = ["derive"] }
+libc = "0.2.159"
+rustix = { version = "0.38.37", features = ["shm", "mm"] }
+thiserror = "1.0.64"
+hashtable_shm = {  path = "hashtable_shm" }
+ctrlc = "3.4.5"
