@@ -282,7 +282,7 @@ impl<T: Clone> RingBuffer<T> {
         }
 
         // Check if we have something to read otherwise wait
-        if self.read_pos == self.write_pos {
+        while self.read_pos == self.write_pos {
             unsafe {
                 libc::pthread_cond_wait(&mut self.has_data, &mut self.lock);
             }
