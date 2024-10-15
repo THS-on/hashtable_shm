@@ -119,8 +119,7 @@ fn main() -> ExitCode {
                         match ipc_client.response_put(&response) {
                             Ok(_) => break,
                             Err(shm_ipc::Error::BufferFull) => {
-                                println!("Buffer full");
-                                thread::sleep(time::Duration::from_millis(1))
+                                thread::sleep(time::Duration::from_micros(10))
                             } // We don't have an extra lock for this, so just wait
                             Err(_) => {
                                 eprintln!("Something went wrong while trying to write to buffer");
